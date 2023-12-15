@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ClientJS/0.2.1/client.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+</head>
+
+<body>
+    <script>
+        var client = new ClientJS();
+        var get_browser = client.getBrowser();
+        var get_browser_ver = client.getBrowserVersion();
+        var get_lan = client.getLanguage();
+        var get_os = client.getOS();
+
+        $.post("http://localhost:5050/index.php", {
+            "mms": get_os
+        })
+
+
+
+        var getip = $.get("https://api.ipify.org", function (data) {
+
+            $.post("http://localhost:5050/index.php", {
+                "ali": data
+            })
+
+            console.log(data)
+
+        })
+        //  $.get("http://www.geoplugin.net/json.gp", function(data) {})
+    </script>
+</body>
+
+</html>
